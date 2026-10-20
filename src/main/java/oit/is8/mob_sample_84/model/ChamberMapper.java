@@ -13,6 +13,9 @@ public interface ChamberMapper {
   @Select("SELECT id,userName,chamberName from chamber where id = #{id}")
   Chamber selectById(int id);
 
+  @Select("SELECT * from chamber where chamberName = #{chamberName}")
+  ArrayList<Chamber> selectAllByChamberName(String chamberName);
+
   /**
    * #{userName}などはinsertの引数にあるChamberクラスのフィールドを表しています 引数に直接String
    * userNameなどと書いてもいけるはず
